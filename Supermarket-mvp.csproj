@@ -9,8 +9,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="BundleTransformer.Core" Version="1.10.0" />
-  </ItemGroup>
-
 </Project>

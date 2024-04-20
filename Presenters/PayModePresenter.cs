@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using supermarkett_mvp.Views;
 using supermarkett_mvp.Models;
-using BundleTransformer.Core.Constants;
-using Supermarket_mvp.Models;
+using Supermarket_mvp.Views;
 
 namespace supermarkett_mvp.Presenters
 {
@@ -20,7 +19,7 @@ namespace supermarkett_mvp.Presenters
         public PayModePresenter(IPayModeView view, IPayModeRepository repository)
         {
             this.payModeBindingSource = new BindingSource();
-
+            
             this.view = view;
             this.repository = repository;
 
@@ -76,7 +75,7 @@ namespace supermarkett_mvp.Presenters
             }
             catch (Exception ex)
             {
-                view.IsSuccesful = false;
+                view.IsSuccesful = false;   
                 view.Message = ex.Message;
             }
         }
@@ -140,12 +139,19 @@ namespace supermarkett_mvp.Presenters
         }
     }
 
+    internal class PayModeModel
+    {
+        public int Id { get; internal set; }
+        public string Name { get; internal set; }
+        public string Observation { get; internal set; }
+    }
+
     internal interface IPayModeRepository
     {
         void Add(PayModeModel payMode);
         void Delete(int id);
         void Edit(PayModeModel payMode);
         IEnumerable<PayModeModel> GetAll();
-        IEnumerable<PayModeModel> GetByValue(string? searchValue);
+        IEnumerable<PayModeModel> GetByValue(string searchValue);
     }
 }
