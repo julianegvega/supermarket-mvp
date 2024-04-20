@@ -137,13 +137,4 @@ namespace Supermarket_mvp.Presenters
             payModeBindingSource.DataSource = payModeList;
         }
     }
-
-    internal interface IPayModeRepository
-    {
-        void Add(PayModeModel payMode);
-        void Delete(int id);
-        void Edit(PayModeModel payMode);
-        IEnumerable<PayModeModel> GetAll();
-        IEnumerable<PayModeModel> GetByValue(object searchValue);
-    }
 }

@@ -8,6 +8,7 @@ using Microsoft.Data;
 using Supermarket_mvp.Models;
 using System.Data;
 using Supermarket_mvp.Models;
+using System.Data.SqlClient;
 
 namespace Supermarket_mvp._Repositories
 {
