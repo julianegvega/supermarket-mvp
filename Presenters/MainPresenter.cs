@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using supermarkett_mvp.Models;
-using supermarkett_mvp.Views;
-using supermarkett_mvp._Repositories;
+using Supermarket_mvp.Models;
+using Supermarket_mvp.Views;
+using Supermarket_mvp._Repositories;
 
-
-namespace supermarkett_mvp.Presenters
+namespace Supermarket_mvp.Presenters
 {
     internal class MainPresenter
     {
@@ -57,5 +56,141 @@ namespace supermarkett_mvp.Presenters
             IProvidersRepository repository = new ProvidersRepository(sqlConnectionString);
             new ProvidersPresenter(view, repository);
         }
+    }
+
+    internal class ProvidersPresenter
+    {
+        private IProvidersView view;
+        private IProvidersRepository repository;
+
+        public ProvidersPresenter(IProvidersView view, IProvidersRepository repository)
+        {
+            this.view = view;
+            this.repository = repository;
+        }
+    }
+
+    internal interface IProvidersRepository
+    {
+    }
+
+    internal class ProvidersRepository
+    {
+        private string sqlConnectionString;
+
+        public ProvidersRepository(string sqlConnectionString)
+        {
+            this.sqlConnectionString = sqlConnectionString;
+        }
+    }
+
+    internal class ProvidersView
+    {
+        internal static IProvidersView GetInstance(MainView mainView)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    internal interface IProvidersView
+    {
+    }
+
+    internal class PayModeView
+    {
+        internal static IPayModeView GetInstance(MainView mainView)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    internal interface IPayModeView
+    {
+        Action<object?, EventArgs> SearchEvent { get; set; }
+        Action<object?, EventArgs> AddNewEvent { get; set; }
+        Action<object?, EventArgs> EditEvent { get; set; }
+        Action<object?, EventArgs> DeleteEvent { get; set; }
+        Action<object?, EventArgs> SaveEvent { get; set; }
+        Action<object?, EventArgs> CancelEvent { get; set; }
+        bool PayModeId { get; set; }
+        string PayModeName { get; set; }
+        string PayModeObservation { get; set; }
+        bool IsEdit { get; set; }
+        string Message { get; set; }
+        bool IsSuccesful { get; set; }
+        string? SearchValue { get; set; }
+
+        void SetPayModeListBildingSource(BindingSource payModeBindingSource);
+        void Show();
+    }
+
+    internal class ProductPresenter
+    {
+        private IProductView view;
+        private IProductRepository repository;
+
+        public ProductPresenter(IProductView view, IProductRepository repository)
+        {
+            this.view = view;
+            this.repository = repository;
+        }
+    }
+
+    internal class ProductRepository : IProductRepository
+    {
+        public ProductRepository(string sqlConnectionString)
+        {
+        }
+    }
+
+    internal interface IProductRepository
+    {
+    }
+
+    internal class ProductView
+    {
+        internal static IProductView GetInstance(MainView mainView)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    internal interface IProductView
+    {
+    }
+
+    internal class CategoriesPresenter
+    {
+        private ICategoriesView view;
+        private ICategoriesRepository repository;
+
+        public CategoriesPresenter(ICategoriesView view, ICategoriesRepository repository)
+        {
+            this.view = view;
+            this.repository = repository;
+        }
+    }
+
+    internal class CategoriesRepository : ICategoriesRepository
+    {
+        public CategoriesRepository(string sqlConnectionString)
+        {
+        }
+    }
+
+    internal interface ICategoriesRepository
+    {
+    }
+
+    internal class CategoriesView
+    {
+        internal static ICategoriesView GetInstance(MainView mainView)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    internal interface ICategoriesView
+    {
     }
 }

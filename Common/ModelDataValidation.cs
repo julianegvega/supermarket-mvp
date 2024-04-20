@@ -1,4 +1,5 @@
-﻿using supermarkett_mvp.Presenters;
+﻿using Supermarket_mvp.Models;
+using Supermarket_mvp.Presenters;
 
 namespace Common
 {
@@ -6,6 +7,11 @@ namespace Common
     {
         public ModelDataValidation()
         {
+        }
+
+        internal void Validate(PayModeModel payMode)
+        {
+            throw new NotImplementedException();
         }
 
         internal void Validate(PayModeModel payMode)

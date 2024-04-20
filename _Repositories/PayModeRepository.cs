@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data;
-using supermarkett_mvp.Models;
+using Supermarket_mvp.Models;
 using System.Data;
-using supermarkett_mvp.Models;
+using Supermarket_mvp.Models;
 
-namespace supermarkett_mvp._Repositories
+namespace Supermarket_mvp._Repositories
 {
     internal class PayModeRepository : BaseRepository, IPayModeRepository
     {

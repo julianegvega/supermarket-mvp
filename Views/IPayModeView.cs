@@ -11,7 +11,7 @@ namespace Supermarket_mvp.Views
         string PayModeId { get; set; }
         string PayModeName { get; set; }
         string PayModeObservation { get; set; }
-         
+
         string SearchValue { get; set; }
         bool IsEdit { get; set; }
         bool IsSuccesful { get; set; }
@@ -28,3 +28,4 @@ namespace Supermarket_mvp.Views
         void Show();
     }
 }
+
