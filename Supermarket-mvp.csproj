@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Presenters\" />
+    <PackageReference Include="BundleTransformer.Core" Version="1.10.0" />
   </ItemGroup>
 
 </Project>
