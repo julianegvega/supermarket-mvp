@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Supermarket_mvp.Views
 {
-    public partial class ProvidersView : Form
+    public partial class ProvidersView : Form, IProvidersView
     {
         private bool isEdit;
         private bool isSuccessful;
@@ -21,6 +21,8 @@ namespace Supermarket_mvp.Views
             AssociateAndRaiseViewEvents();
 
             tabControl1.TabPages.Remove(tabPageProvidersDetail);
+
+            BtnClose.Click += delegate { this.Close(); };
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -33,6 +35,59 @@ namespace Supermarket_mvp.Views
                 {
                     SearchEvent?.Invoke(this, EventArgs.Empty);
                 }
+            };
+
+            BtnNew.Click += delegate {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageProvidersList);
+                tabControl1.TabPages.Add(tabPageProvidersDetail);
+                tabPageProvidersDetail.Text = "Add New Provider";
+
+            };
+
+            BtnEdit.Click += delegate {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageProvidersList);
+                tabControl1.TabPages.Add(tabPageProvidersDetail);
+                tabPageProvidersDetail.Text = "Edit Provider";
+
+            };
+
+            BtnDelete.Click += delegate {
+                DeleteEvent?.Invoke(this, EventArgs.Empty);
+
+                var result = MessageBox.Show(
+                    "Are you sure you want to delete the selected Provider",
+                    "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+
+            };
+
+            BtnSave.Click += delegate {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+
+                if (isSuccessful)
+                {
+                    tabControl1.TabPages.Remove(tabPageProvidersDetail);
+                    tabControl1.TabPages.Add(tabPageProvidersList);
+                }
+                MessageBox.Show(Message);
+
+            };
+
+            BtnCancel.Click += delegate {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPageProvidersDetail);
+                tabControl1.TabPages.Add(tabPageProvidersList);
             };
         }
 
@@ -72,6 +127,8 @@ namespace Supermarket_mvp.Views
             set { message = value; }
         }
 
+        public string Menssage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;
@@ -105,6 +162,11 @@ namespace Supermarket_mvp.Views
                 instance.BringToFront();
             }
             return instance;
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
