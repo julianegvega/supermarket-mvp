@@ -8,6 +8,8 @@ namespace Supermarket_mvp.Views
 {
     internal interface IMainView
     {
+        Action<object?, EventArgs> ShowProvidersView { get; set; }
+
         event EventHandler ShowPayModeView;
         event EventHandler ShowProductView;
         event EventHandler ShowCustomerView;

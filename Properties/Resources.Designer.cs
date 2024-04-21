@@ -10,6 +10,7 @@
 
 namespace Supermarket_mvp.Properties {
     using System;
+    using System.Drawing;
 
 
     /// <summary>
@@ -24,7 +25,7 @@ namespace Supermarket_mvp.Properties {
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources
     {
-
+        internal static Image providers;
         private static global::System.Resources.ResourceManager resourceMan;
 
         private static global::System.Globalization.CultureInfo resourceCulture;

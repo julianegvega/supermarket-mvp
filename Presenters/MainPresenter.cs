@@ -1,6 +1,11 @@
-﻿using Supermarket_mvp._Repositories;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Supermarket_mvp.Models;
 using Supermarket_mvp.Views;
+using Supermarket_mvp._Repositories;
 
 namespace Supermarket_mvp.Presenters
 {
@@ -15,6 +20,7 @@ namespace Supermarket_mvp.Presenters
             this.sqlConnectionString = sqlConnectionString;
 
             this.mainView.ShowPayModeView += ShowPayModeView;
+            this.mainView.ShowProvidersView += ShowProvidersView;
         }
 
         private void ShowPayModeView(object? sender, EventArgs e)
@@ -23,6 +29,26 @@ namespace Supermarket_mvp.Presenters
             IPayModeView view = PayModeView.GetInstance((MainView)mainView);
             IPayModeRepository repository = new PayModeRepository(sqlConnectionString);
             new PayModePresenter(view, repository);
+        }
+
+        private void ShowProvidersView(object? sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            IProvidersView view = (IProvidersView)ProvidersView.GetInstance((MainView)mainView);
+            IProvidersRepository repository = new ProvidersRepository(sqlConnectionString);
+            new ProvidersPresenter(view, repository);
+        }
+    }
+
+    internal class ProvidersPresenter
+    {
+        private IProvidersView view;
+        private IProvidersRepository repository;
+
+        public ProvidersPresenter(IProvidersView view, IProvidersRepository repository)
+        {
+            this.view = view;
+            this.repository = repository;
         }
     }
 }
