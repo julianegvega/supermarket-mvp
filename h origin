@@ -1,0 +1,35 @@
+[33mcommit 38b94b6c28b004edb9683df9c7398bc726d9d04e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Julian Vega <juliangomvega@gmail.com>
+Date:   Sat Apr 20 17:35:22 2024 -0500
+
+    Update Presenter y Repository for Pay Mode
+
+[33mcommit b34a7da1591cb093e31659451172e04ba36f02da[m
+Author: Julian Vega <juliangomvega@gmail.com>
+Date:   Sat Apr 20 16:51:25 2024 -0500
+
+    Adjustments to views
+
+[33mcommit 1ffdfc6b495f02a7ed974fca8b8c126821a4bd16[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Julian Vega <juliangomvega@gmail.com>
+Date:   Sat Apr 20 12:41:26 2024 -0500
+
+    Main View
+
+[33mcommit 82f25a92ff7853e04754669148f08758c1975887[m
+Author: Julian Vega <juliangomvega@gmail.com>
+Date:   Sat Apr 20 12:10:44 2024 -0500
+
+    Pay Mode Repository - Search
+
+[33mcommit db69e94438243c67c71fb61ba0812bb14a2b3902[m
+Author: Julian Vega <juliangomvega@gmail.com>
+Date:   Sat Apr 20 11:25:23 2024 -0500
+
+    Pay Mode View
+
+[33mcommit 49825033db5ae24ccbcc8962e3eb1b89ebddf105[m
+Author: Julian Vega <juliangomvega@gmail.com>
+Date:   Fri Apr 19 11:37:34 2024 -0500
+
+    Initial Project
