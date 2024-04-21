@@ -84,5 +84,10 @@ namespace Supermarket_mvp.Views
         {
             DgProduct.DataSource = productList;
         }
+
+        internal static IProductView GetInstance(MainView mainView)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
